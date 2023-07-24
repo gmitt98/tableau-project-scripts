@@ -10,13 +10,13 @@ df = pd.read_csv(file_path)
 grouped_data = df.groupby('start_station_id').agg({
     'start_station_id': 'count',
     'start_lat': 'mean',
-    'end_lat': 'mean'
+    'start_lng': 'mean'
 })
 
 grouped_data.rename(columns={
     'start_station_id': 'count_of_rides',
     'start_lat': 'avg_start_lat',
-    'end_lat': 'avg_end_lat'
+    'start_lon': 'avg_start_lng'
 }, inplace=True)
 
 sorted_data = grouped_data.sort_values(by='count_of_rides', ascending=False)
